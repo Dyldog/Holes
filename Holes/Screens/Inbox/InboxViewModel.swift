@@ -5,12 +5,14 @@
 //  Created by Dylan Elliott on 19/2/2022.
 //
 
+import Combine
 import Foundation
 
 class InboxViewModel: NSObject, ObservableObject {
     let transactionsManager: TransactionsManager
     var transactions: [Transaction] { didSet { updateCellModels() } }
     @Published var cellModels: [(String, [TransactionCellModel])] = []
+    @Published var selectedTransaction: Transaction? = nil
     
     var amountFormetter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -18,17 +20,26 @@ class InboxViewModel: NSObject, ObservableObject {
         return formatter
     }()
     
+    var cancellables: [AnyCancellable] = []
     override init() {
         transactionsManager = .init()
         transactions = []
         super.init()
         reload()
         
+        cancellables = cancellables + [$selectedTransaction.sink {
+            print("Selected transaction updated: \($0)")
+        }]
+        
     }
     
     func reload() {
-        transactionsManager.getUnsortedTransactions {
-            self.transactions = $0
+        DispatchQueue.global().async {
+            self.transactionsManager.getUnsortedTransactions { transactions in
+                DispatchQueue.main.async {
+                    self.transactions = transactions
+                }
+            }
         }
     }
     
@@ -43,18 +54,34 @@ class InboxViewModel: NSObject, ObservableObject {
                         id: $0.id,
                         title: $0.description,
                         subtitle: DateFormatter.timeFormatter.string(from: $0.date),
-                        amount: self.amountFormetter.string(from: $0.amount as NSNumber)!
+                        amount: self.amountFormetter.string(from: $0.amount as NSNumber)!,
+                        type: .transaction
                     )
                 })
             }
         }
     }
     
-    func markTransactionAsHole(_ transaction: TransactionCellModel, isHole: Bool) {
+    func transaction(for cellModel: TransactionCellModel) -> Transaction? {
+        return transactions.first(where: { $0.id == cellModel.id })
+    }
+    
+    func getHoles() -> [Hole] {
+        return transactionsManager.getTransactionHoles()
+    }
+    
+    func markTransaction(_ transaction: TransactionCellModel, toEvent event: Event) {
         guard let transaction = transactions.first(where: { $0.id == transaction.id }) else { return }
-        transactionsManager.markTransactionAsHole(transaction, isHole: isHole)
+        transactionsManager.addTransaction(transaction, toEvent: event)
         reload()
     }
+    
+//    func addTransaction(_ transaction: TransactionCellModel, toHoleNamed holeName: String) {
+//        guard let transaction = transactions.first(where: { $0.id == transaction.id }) else { return }
+//        let hole = transactionsManager.createHole(holeName)
+//        transactionsManager.addTransaction(transaction, toHole: hole)
+//        reload()
+//    }
 }
 
 struct TransactionCellModel: Identifiable {
@@ -62,4 +89,5 @@ struct TransactionCellModel: Identifiable {
     let title: String
     let subtitle: String
     let amount: String
+    let type: ItemType
 }

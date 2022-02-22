@@ -14,21 +14,36 @@ struct Transaction: Codable, Identifiable {
     let amount: Double
     let date: Date
     
-    let isHole: Bool?
-    /// If this is a transaction related to a night out, is the date of the night out
-    let holeDate: Date?
+    let holeStatus: HoleStatus
     
     func asHoleTransaction() -> HoleTransaction? {
-        guard let holeDate = holeDate else { return nil }
+        guard case let .hole(holeID, holeDate) = holeStatus else { return nil }
         
         return HoleTransaction(
             id: id,
             description: description,
             amount: amount,
             date: date,
+            holeID: holeID,
             holeDate: holeDate
         )
 
     }
 }
 
+enum HoleStatus: Codable, Equatable {
+    case unsorted
+    case nonHole
+    case hole(String, Date)
+    
+    static func ==(lhs: HoleStatus, rhs: HoleStatus) -> Bool {
+        switch (lhs, rhs) {
+        case let (.hole(lhsID, lhsDate), .hole(rhsID, rhsDate)):
+            return lhsID == rhsID && lhsDate == rhsDate
+        case (.unsorted, .unsorted), (.nonHole, .nonHole):
+            return true
+        case (.unsorted, _), (.hole, _), (.nonHole, _):
+            return false
+        }
+    }
+}

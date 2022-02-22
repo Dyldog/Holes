@@ -14,5 +14,6 @@ struct HoleTransaction: Codable, Identifiable {
     let amount: Double
     let date: Date
     
+    let holeID: String
     let holeDate: Date
 }

@@ -21,6 +21,6 @@ struct TransactionCell: View {
             Spacer()
             Text(transaction.amount)
         }
-        .contentShape(Rectangle())
+//        .contentShape(Rectangle())
     }
 }
