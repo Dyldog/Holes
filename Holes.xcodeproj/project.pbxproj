@@ -9,6 +9,19 @@
 /* Begin PBXBuildFile section */
 		1150FD4A27C4600C0044418F /* TransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150FD4927C4600C0044418F /* TransactionManager.swift */; };
 		1150FD4F27C4660A0044418F /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150FD4E27C4660A0044418F /* TransactionCell.swift */; };
+		1150FD5127C468980044418F /* Hole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150FD5027C468980044418F /* Hole.swift */; };
+		1150FD5327C468E30044418F /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150FD5227C468E30044418F /* SearchView.swift */; };
+		1150FD5527C469030044418F /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150FD5427C469030044418F /* SearchBar.swift */; };
+		1150FD5727C46AAA0044418F /* HoleSearchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150FD5627C46AAA0044418F /* HoleSearchItem.swift */; };
+		1150FD5927C46D4B0044418F /* UserDefaults+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150FD5827C46D4B0044418F /* UserDefaults+Codable.swift */; };
+		1150FD5B27C478380044418F /* AddEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150FD5A27C478380044418F /* AddEventView.swift */; };
+		1150FD5D27C478610044418F /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150FD5C27C478610044418F /* Event.swift */; };
+		1150FD6027C47D0D0044418F /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150FD5F27C47D0D0044418F /* EventsView.swift */; };
+		1150FD6227C47D130044418F /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150FD6127C47D130044418F /* EventsViewModel.swift */; };
+		1150FD6427C495710044418F /* TransactionGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150FD6327C495710044418F /* TransactionGroupView.swift */; };
+		1150FD6627C4957A0044418F /* TransactionGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150FD6527C4957A0044418F /* TransactionGroupViewModel.swift */; };
+		1150FD6827C4A9030044418F /* MoveTransactionGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150FD6727C4A9030044418F /* MoveTransactionGroupView.swift */; };
+		1150FD6A27C4C12D0044418F /* AddHoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150FD6927C4C12D0044418F /* AddHoleView.swift */; };
 		11B44BBB27C05F2A00066EF3 /* HolesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B44BBA27C05F2A00066EF3 /* HolesApp.swift */; };
 		11B44BBD27C05F2A00066EF3 /* InboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B44BBC27C05F2A00066EF3 /* InboxView.swift */; };
 		11B44BBF27C05F2B00066EF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11B44BBE27C05F2B00066EF3 /* Assets.xcassets */; };
@@ -21,8 +34,6 @@
 		11B44BEF27C06B7200066EF3 /* Dictionary+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B44BEE27C06B7200066EF3 /* Dictionary+Extensions.swift */; };
 		11B44BF127C0715300066EF3 /* HolesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B44BF027C0715300066EF3 /* HolesView.swift */; };
 		11B44BF327C0715800066EF3 /* HolesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B44BF227C0715800066EF3 /* HolesViewModel.swift */; };
-		11B44BF627C07B7500066EF3 /* NonHolesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B44BF527C07B7500066EF3 /* NonHolesViewModel.swift */; };
-		11B44BF727C07B7500066EF3 /* NonHolesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B44BF427C07B7500066EF3 /* NonHolesView.swift */; };
 		11B44BF927C0824E00066EF3 /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B44BF827C0824E00066EF3 /* NotesView.swift */; };
 		11B44BFB27C0829400066EF3 /* TextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B44BFA27C0829400066EF3 /* TextEditor.swift */; };
 		11B44C0127C0838200066EF3 /* HighlightedTextEditor in Frameworks */ = {isa = PBXBuildFile; productRef = 11B44C0027C0838200066EF3 /* HighlightedTextEditor */; };
@@ -33,6 +44,19 @@
 /* Begin PBXFileReference section */
 		1150FD4927C4600C0044418F /* TransactionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionManager.swift; sourceTree = "<group>"; };
 		1150FD4E27C4660A0044418F /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
+		1150FD5027C468980044418F /* Hole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hole.swift; sourceTree = "<group>"; };
+		1150FD5227C468E30044418F /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		1150FD5427C469030044418F /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		1150FD5627C46AAA0044418F /* HoleSearchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoleSearchItem.swift; sourceTree = "<group>"; };
+		1150FD5827C46D4B0044418F /* UserDefaults+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Codable.swift"; sourceTree = "<group>"; };
+		1150FD5A27C478380044418F /* AddEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventView.swift; sourceTree = "<group>"; };
+		1150FD5C27C478610044418F /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		1150FD5F27C47D0D0044418F /* EventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
+		1150FD6127C47D130044418F /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
+		1150FD6327C495710044418F /* TransactionGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionGroupView.swift; sourceTree = "<group>"; };
+		1150FD6527C4957A0044418F /* TransactionGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionGroupViewModel.swift; sourceTree = "<group>"; };
+		1150FD6727C4A9030044418F /* MoveTransactionGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveTransactionGroupView.swift; sourceTree = "<group>"; };
+		1150FD6927C4C12D0044418F /* AddHoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHoleView.swift; sourceTree = "<group>"; };
 		11B44BB727C05F2A00066EF3 /* Holes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Holes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11B44BBA27C05F2A00066EF3 /* HolesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolesApp.swift; sourceTree = "<group>"; };
 		11B44BBC27C05F2A00066EF3 /* InboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxView.swift; sourceTree = "<group>"; };
@@ -46,8 +70,6 @@
 		11B44BEE27C06B7200066EF3 /* Dictionary+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extensions.swift"; sourceTree = "<group>"; };
 		11B44BF027C0715300066EF3 /* HolesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolesView.swift; sourceTree = "<group>"; };
 		11B44BF227C0715800066EF3 /* HolesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolesViewModel.swift; sourceTree = "<group>"; };
-		11B44BF427C07B7500066EF3 /* NonHolesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonHolesView.swift; sourceTree = "<group>"; };
-		11B44BF527C07B7500066EF3 /* NonHolesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonHolesViewModel.swift; sourceTree = "<group>"; };
 		11B44BF827C0824E00066EF3 /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
 		11B44BFA27C0829400066EF3 /* TextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditor.swift; sourceTree = "<group>"; };
 		11B44C0227C45C7D00066EF3 /* DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
@@ -69,8 +91,8 @@
 		113EC90927C45F25003CD4A1 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				1150FD5E27C47D070044418F /* Events */,
 				1150FD4B27C460220044418F /* Notes */,
-				11A0D5A827C45F48006014CF /* NonHoles */,
 				11A0D5A727C45F42006014CF /* Holes */,
 				113EC90A27C45F2C003CD4A1 /* Inbox */,
 			);
@@ -108,6 +130,8 @@
 			children = (
 				11B44BFA27C0829400066EF3 /* TextEditor.swift */,
 				1150FD4E27C4660A0044418F /* TransactionCell.swift */,
+				1150FD5227C468E30044418F /* SearchView.swift */,
+				1150FD5427C469030044418F /* SearchBar.swift */,
 			);
 			path = SharedViews;
 			sourceTree = "<group>";
@@ -117,8 +141,18 @@
 			children = (
 				11B44C0227C45C7D00066EF3 /* DateFormatter+Extensions.swift */,
 				11B44BEE27C06B7200066EF3 /* Dictionary+Extensions.swift */,
+				1150FD5827C46D4B0044418F /* UserDefaults+Codable.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1150FD5E27C47D070044418F /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				1150FD5F27C47D0D0044418F /* EventsView.swift */,
+				1150FD6127C47D130044418F /* EventsViewModel.swift */,
+			);
+			path = Events;
 			sourceTree = "<group>";
 		};
 		1152061A27C45F7800EF6787 /* Model */ = {
@@ -126,6 +160,9 @@
 			children = (
 				11B44BEC27C0655600066EF3 /* Transaction.swift */,
 				11C0A9B127C45FCA00EB9803 /* HoleTransaction.swift */,
+				1150FD5027C468980044418F /* Hole.swift */,
+				1150FD5C27C478610044418F /* Event.swift */,
+				1150FD5627C46AAA0044418F /* HoleSearchItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -156,15 +193,6 @@
 			path = Holes;
 			sourceTree = "<group>";
 		};
-		11A0D5A827C45F48006014CF /* NonHoles */ = {
-			isa = PBXGroup;
-			children = (
-				11B44BF427C07B7500066EF3 /* NonHolesView.swift */,
-				11B44BF527C07B7500066EF3 /* NonHolesViewModel.swift */,
-			);
-			path = NonHoles;
-			sourceTree = "<group>";
-		};
 		11B44BAE27C05F2A00066EF3 = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +214,9 @@
 			children = (
 				11B44BBA27C05F2A00066EF3 /* HolesApp.swift */,
 				11B44BCA27C0600800066EF3 /* Secrets.swift */,
+				1150FD6327C495710044418F /* TransactionGroupView.swift */,
+				1150FD6527C4957A0044418F /* TransactionGroupViewModel.swift */,
+				1150FD6727C4A9030044418F /* MoveTransactionGroupView.swift */,
 				1150FD4827C45FEC0044418F /* Domain */,
 				1152061B27C45F8400EF6787 /* API */,
 				113EC90927C45F25003CD4A1 /* Screens */,
@@ -193,6 +224,8 @@
 				1150FD4D27C4603F0044418F /* Extensions */,
 				11B44BBE27C05F2B00066EF3 /* Assets.xcassets */,
 				11B44BC027C05F2B00066EF3 /* Preview Content */,
+				1150FD5A27C478380044418F /* AddEventView.swift */,
+				1150FD6927C4C12D0044418F /* AddHoleView.swift */,
 			);
 			path = Holes;
 			sourceTree = "<group>";
@@ -281,6 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1150FD5327C468E30044418F /* SearchView.swift in Sources */,
 				11B44BED27C0655600066EF3 /* Transaction.swift in Sources */,
 				11B44BFB27C0829400066EF3 /* TextEditor.swift in Sources */,
 				11B44BBD27C05F2A00066EF3 /* InboxView.swift in Sources */,
@@ -290,15 +324,25 @@
 				11B44BBB27C05F2A00066EF3 /* HolesApp.swift in Sources */,
 				11B44BC927C05FC400066EF3 /* UpAPIClient.swift in Sources */,
 				11B44BF327C0715800066EF3 /* HolesViewModel.swift in Sources */,
-				11B44BF627C07B7500066EF3 /* NonHolesViewModel.swift in Sources */,
-				11B44BF727C07B7500066EF3 /* NonHolesView.swift in Sources */,
+				1150FD6627C4957A0044418F /* TransactionGroupViewModel.swift in Sources */,
+				1150FD5127C468980044418F /* Hole.swift in Sources */,
+				1150FD6027C47D0D0044418F /* EventsView.swift in Sources */,
+				1150FD5927C46D4B0044418F /* UserDefaults+Codable.swift in Sources */,
 				11B44BF927C0824E00066EF3 /* NotesView.swift in Sources */,
+				1150FD5527C469030044418F /* SearchBar.swift in Sources */,
+				1150FD6A27C4C12D0044418F /* AddHoleView.swift in Sources */,
 				11B44BEB27C0629300066EF3 /* UpTransactionsResponse.swift in Sources */,
 				11B44BE927C061E700066EF3 /* InboxViewModel.swift in Sources */,
 				1150FD4F27C4660A0044418F /* TransactionCell.swift in Sources */,
+				1150FD5B27C478380044418F /* AddEventView.swift in Sources */,
+				1150FD6427C495710044418F /* TransactionGroupView.swift in Sources */,
+				1150FD5727C46AAA0044418F /* HoleSearchItem.swift in Sources */,
 				11B44BEF27C06B7200066EF3 /* Dictionary+Extensions.swift in Sources */,
 				11C0A9B227C45FCA00EB9803 /* HoleTransaction.swift in Sources */,
+				1150FD6227C47D130044418F /* EventsViewModel.swift in Sources */,
 				11B44C0327C45C7D00066EF3 /* DateFormatter+Extensions.swift in Sources */,
+				1150FD6827C4A9030044418F /* MoveTransactionGroupView.swift in Sources */,
+				1150FD5D27C478610044418F /* Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,9 +9,8 @@ import Foundation
 
 class HolesViewModel: NSObject, ObservableObject {
     let transactionsManager: TransactionsManager
-    var holes: [(Date, [HoleTransaction])] { didSet { updateCellModels() } }
-    @Published var cellModels: [(String, [TransactionCellModel])] = []
-    var allTransactions: [HoleTransaction] { holes.flatMap { $0.1} }
+    var holes: [Hole] { didSet { updateCellModels() } }
+    @Published var cellModels: [TransactionCellModel] = []
     
     var amountFormetter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -27,34 +26,30 @@ class HolesViewModel: NSObject, ObservableObject {
     }
     
     func reload() {
-        transactionsManager.getHoles {
-            self.holes = $0
-        }
+        holes = transactionsManager.getTransactionHoles()
     }
     
     func updateCellModels() {
         DispatchQueue.main.async {
-            self.cellModels = self.holes.sorted { $0.0 > $1.0 }.map {
-                let total = self.amountFormetter.string(from: $0.1.map { $0.amount }.sum() as NSNumber)!
-                let date = DateFormatter.humanReadableDateFormatter.string(from: $0.0)
-                let title = "\(date) - \(total)"
-                return (title, $0.1.sorted(by: { $0.date < $1.date }).map {
-                    return TransactionCellModel(
-                        id: $0.id,
-                        title: $0.description,
-                        subtitle: DateFormatter.timeFormatter.string(from: $0.date),
-                        amount: self.amountFormetter.string(from: $0.amount as NSNumber)!
-                    )
-                })
+            self.cellModels = self.holes.map {
+                let transactions = self.transactionsManager.transactions(for: $0, includingDescendantHoles: false)
+                let total = transactions.map { $0.amount }.sum()
+                return TransactionCellModel(
+                    id: $0.id,
+                    title: $0.title,
+                    subtitle: "\(transactions.count) transactions",
+                    amount: self.amountFormetter.string(from: total as NSNumber)!,
+                    type: .hole
+                )
             }
         }
     }
     
-    func unmarkTransactionAsHole(_ transaction: TransactionCellModel) {
-        guard let transaction = allTransactions.first(where: { $0.id == transaction.id }) else { return }
-        transactionsManager.unmarkTransactionAsHole(transaction)
-        reload()
-    }
+//    func unmarkTransactionAsHole(_ transaction: TransactionCellModel) {
+//        guard let transaction = allTransactions.first(where: { $0.id == transaction.id }) else { return }
+//        transactionsManager.unmarkTransactionAsHole(transaction)
+//        reload()
+//    }
 }
 
 extension Array where Element: Numeric {

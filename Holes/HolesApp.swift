@@ -18,14 +18,14 @@ struct HolesApp: App {
                 .tabItem { Label("Inbox", systemImage: "envelope") }
                 
                 NavigationView {
-                    HolesView()
+                    TransactionGroupView(title: "Holes", type: nil, source: TransactionsManager.shared.getTopLevelHoles)
                 }
                 .tabItem { Label("Holes", systemImage: "moon") }
                 
                 NavigationView {
-                    NonHolesView()
+                    EventsView()
                 }
-                .tabItem { Label("Nons", systemImage: "sun.min.fill") }
+                .tabItem { Label("Events", systemImage: "sun.min.fill") }
                 
                 NavigationView {
                     NotesView()

@@ -13,34 +13,12 @@ struct HolesView: View {
     @State var selectedTransaction: TransactionCellModel? = nil
     
     var body: some View {
-        List(viewModel.cellModels, id: \.0) { section in
-            Section(header: Text(section.0)) {
-                ForEach(section.1){ transaction in
-                    TransactionCell(transaction: transaction)
-                    .onTapGesture(perform: {
-                        selectedTransaction = transaction
-                    })
-                    .swipeActions {
-                        Button(role: .destructive) {
-                            viewModel.unmarkTransactionAsHole(transaction)
-                        } label: {
-                            Label("Delete", systemImage: "trash.fill")
-                        }
-                    }
-                }
-            }
+        List(viewModel.cellModels) { hole in
+            TransactionCell(transaction: hole)
         }
         .navigationTitle("Holes")
         .onAppear {
             viewModel.reload()
-        }
-        .alert(item: $selectedTransaction) { transaction in
-            Alert(
-                title: Text("Unmark as Hole?"),
-                message: nil,
-                primaryButton: .default(Text("OK"), action: { viewModel.unmarkTransactionAsHole(transaction)}),
-                secondaryButton: .cancel()
-            )
         }
     }
 }
