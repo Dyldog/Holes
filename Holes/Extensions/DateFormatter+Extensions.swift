@@ -13,4 +13,10 @@ extension DateFormatter {
         formatter.dateFormat = "EEEE, MMMM d"
         return formatter
     }()
+    
+    static let timeFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "h:mma"
+        return formatter
+    }()
 }

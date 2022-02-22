@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1150FD4A27C4600C0044418F /* TransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150FD4927C4600C0044418F /* TransactionManager.swift */; };
+		1150FD4F27C4660A0044418F /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150FD4E27C4660A0044418F /* TransactionCell.swift */; };
 		11B44BBB27C05F2A00066EF3 /* HolesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B44BBA27C05F2A00066EF3 /* HolesApp.swift */; };
 		11B44BBD27C05F2A00066EF3 /* InboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B44BBC27C05F2A00066EF3 /* InboxView.swift */; };
 		11B44BBF27C05F2B00066EF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11B44BBE27C05F2B00066EF3 /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		1150FD4927C4600C0044418F /* TransactionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionManager.swift; sourceTree = "<group>"; };
+		1150FD4E27C4660A0044418F /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		11B44BB727C05F2A00066EF3 /* Holes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Holes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11B44BBA27C05F2A00066EF3 /* HolesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolesApp.swift; sourceTree = "<group>"; };
 		11B44BBC27C05F2A00066EF3 /* InboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxView.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				11B44BFA27C0829400066EF3 /* TextEditor.swift */,
+				1150FD4E27C4660A0044418F /* TransactionCell.swift */,
 			);
 			path = SharedViews;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				11B44BF927C0824E00066EF3 /* NotesView.swift in Sources */,
 				11B44BEB27C0629300066EF3 /* UpTransactionsResponse.swift in Sources */,
 				11B44BE927C061E700066EF3 /* InboxViewModel.swift in Sources */,
+				1150FD4F27C4660A0044418F /* TransactionCell.swift in Sources */,
 				11B44BEF27C06B7200066EF3 /* Dictionary+Extensions.swift in Sources */,
 				11C0A9B227C45FCA00EB9803 /* HoleTransaction.swift in Sources */,
 				11B44C0327C45C7D00066EF3 /* DateFormatter+Extensions.swift in Sources */,
