@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "HighlightedTextEditor",
+        "repositoryURL": "https://github.com/Dyldog/HighlightedTextEditor",
+        "state": {
+          "branch": null,
+          "revision": "053cfdf6713596c2895bfbe4fc4a03f087e2e96f",
+          "version": "1.1.5"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
