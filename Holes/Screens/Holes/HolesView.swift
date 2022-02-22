@@ -16,12 +16,7 @@ struct HolesView: View {
         List(viewModel.cellModels, id: \.0) { section in
             Section(header: Text(section.0)) {
                 ForEach(section.1){ transaction in
-                    HStack {
-                        Text(transaction.title)
-                        Spacer()
-                        Text(transaction.amount)
-                    }
-                    .contentShape(Rectangle())
+                    TransactionCell(transaction: transaction)
                     .onTapGesture(perform: {
                         selectedTransaction = transaction
                     })

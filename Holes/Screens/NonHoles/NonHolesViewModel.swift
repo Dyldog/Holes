@@ -36,13 +36,17 @@ class NonHolesViewModel: NSObject, ObservableObject {
     func updateCellModels() {
         DispatchQueue.main.async {
             self.cellModels = self.nonHoles.sorted { $0.0 > $1.0 }.map {
-                (DateFormatter.humanReadableDateFormatter.string(from: $0.0), $0.1.map {
-                    return TransactionCellModel(
-                        id: $0.id,
-                        title: $0.description,
-                        amount: self.amountFormetter.string(from: $0.amount as NSNumber)!
-                    )
-                })
+                (
+                    DateFormatter.humanReadableDateFormatter.string(from: $0.0),
+                    $0.1.sorted(by: { $0.date < $1.date }).map {
+                        return TransactionCellModel(
+                            id: $0.id,
+                            title: $0.description,
+                            subtitle: DateFormatter.timeFormatter.string(from: $0.date),
+                            amount: self.amountFormetter.string(from: $0.amount as NSNumber)!
+                        )
+                    }
+                )
             }
         }
     }

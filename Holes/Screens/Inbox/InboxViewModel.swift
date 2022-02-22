@@ -34,11 +34,15 @@ class InboxViewModel: NSObject, ObservableObject {
     
     func updateCellModels() {
         DispatchQueue.main.async {
-            self.cellModels = self.transactions.groupedByDate(\.date).sorted { $0.key > $1.key }.map {
+            self.cellModels = self.transactions
+                .sorted(by: { $0.date < $1.date })
+                .groupedByDate(\.date)
+                .sorted { $0.key > $1.key }.map {
                 (DateFormatter.humanReadableDateFormatter.string(from: $0.key), $0.value.map {
                     TransactionCellModel(
                         id: $0.id,
                         title: $0.description,
+                        subtitle: DateFormatter.timeFormatter.string(from: $0.date),
                         amount: self.amountFormetter.string(from: $0.amount as NSNumber)!
                     )
                 })
@@ -56,5 +60,6 @@ class InboxViewModel: NSObject, ObservableObject {
 struct TransactionCellModel: Identifiable {
     let id: String
     let title: String
+    let subtitle: String
     let amount: String
 }

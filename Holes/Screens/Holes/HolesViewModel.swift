@@ -38,10 +38,11 @@ class HolesViewModel: NSObject, ObservableObject {
                 let total = self.amountFormetter.string(from: $0.1.map { $0.amount }.sum() as NSNumber)!
                 let date = DateFormatter.humanReadableDateFormatter.string(from: $0.0)
                 let title = "\(date) - \(total)"
-                return (title, $0.1.map {
+                return (title, $0.1.sorted(by: { $0.date < $1.date }).map {
                     return TransactionCellModel(
                         id: $0.id,
                         title: $0.description,
+                        subtitle: DateFormatter.timeFormatter.string(from: $0.date),
                         amount: self.amountFormetter.string(from: $0.amount as NSNumber)!
                     )
                 })
